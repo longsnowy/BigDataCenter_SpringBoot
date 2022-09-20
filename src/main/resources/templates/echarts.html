@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main1" style="position: absolute;width: 600px;height:400px;"></div>
+<div id="main2" style="position: absolute;width: 600px;height:400px;margin-left: 600px"></div>
+<div id="main3" style="position: absolute;width: 600px;height:400px;margin-top: 450px"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart1 = echarts.init(document.getElementById('main2'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '按照地区流量排名前十'
+        },
+        tooltip: {},
+        legend: {
+            data:['ip']
+        },
+        xAxis: {
+            data: ["101.200.101.21","140.205.253.137","139.196.128.67","140.205.253.145","140.205.253.135","101.200.101.13","101.200.101.31","139.196.128.78","139.196.128.65","101.200.101.9"]
+        },
+
+        yAxis: {},
+        series: [{
+            name: '流量',
+            type: 'bar',
+            data: [3145728,1048576,1048576,1048576,1048576,1048576,1048576,1048576,524288,524288]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart1.setOption(option);
+</script>
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart2 = echarts.init(document.getElementById('main1'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '按照文章或视频流量排名前十'
+        },
+        tooltip: {},
+        legend: {
+            data:['文章或视频id']
+        },
+        xAxis: {
+            data: ["10506","5609","8175","11724","9478","11938","13109","2030","7557","4029"]
+        },
+
+
+        yAxis: {},
+        series: [{
+            name: '流量',
+            type: 'bar',
+            data: [3145836,1048643,1048630,1048576,1048576,1048576,552862,552862,524396,524288]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart2.setOption(option);
+</script>
+
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart3 = echarts.init(document.getElementById('main3'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '按照时间流量排名前十 2016-11-09 16点'
+        },
+        tooltip: {},
+        legend: {
+            data:['时间']
+        },
+        xAxis: {
+            data: ["01:06","01:36","01:03","01:43","01:52","01:14","01:13","01:51","01:35","01:29"]
+        },
+        yAxis: {},
+        series: [{
+            name: '流量',
+            type: 'bar',
+            data: [1630889,1380377,1074147,1071299,1071129,1056255,1055912,580548,566310,556119]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart3.setOption(option);
+</script>
+</body>
+</html>

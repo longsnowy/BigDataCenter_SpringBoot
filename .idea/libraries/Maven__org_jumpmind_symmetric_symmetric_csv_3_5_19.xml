@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jumpmind.symmetric:symmetric-csv:3.5.19">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/maven/repos/org/jumpmind/symmetric/symmetric-csv/3.5.19/symmetric-csv-3.5.19.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/maven/repos/org/jumpmind/symmetric/symmetric-csv/3.5.19/symmetric-csv-3.5.19-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/maven/repos/org/jumpmind/symmetric/symmetric-csv/3.5.19/symmetric-csv-3.5.19-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+<!--    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));//main是<div id="main" style="width: 600px;height:400px;"></div>的id
+    var option;
+    var list=[];
+    var ids=[]
+    var traffics=[]
+    $.ajax({
+        contentType: "application/json",
+        type: "GET",
+        url: "http://localhost:8080/list1",
+        dataType: "json",
+        success: function (data) {
+            //创建一个数组，用来装对象传给series.data，因为series.data里面不能直接鞋for循环
+            this.list=data.data.items;
+            console.log(this.list)
+            console.log(data)
+
+            this.ids=[]
+            this.traffics = []
+            for (let i = 0; i < this.list.length; i++) {
+                this.ids[i] = this.list[i].id
+                console.log("111111   " + this.list[i].ip)
+                this.traffics[i] = this.list[i].traffic
+            }
+
+            console.log(ids,traffics)
+
+            myChart.setOption(option = {
+                title: {
+                    text: 'ECharts 第一问'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['访问数']
+                },
+                xAxis: {
+                    data: this.ids
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    data: this.traffics
+                }]
+            });
+        }
+    });
+</script>
+</body>
+</html>
